@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Customer</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -15,7 +15,8 @@
         </style>
 
         <style>
-            body {
+            body 
+            {
                 font-family: 'Nunito', sans-serif;
             }
         </style>
@@ -23,7 +24,83 @@
 
 <body>
     <div>
-        Buyer
+        Buyers:
+    </div>
+    <form method="get">
+    <div>
+        <label>
+            BLOCKED
+            <input type="radio" id="blocked" name="isBlocked" value="null" checked=true>
+            <label for="blocked">yes or no</label>
+            <input type="radio" id="blockedTrue" name="isBlocked" value="true">
+            <label for="blockedTrue">yes</label>
+            <input type="radio" id="blockedFalse" name="isBlocked" value="false">
+            <label for="blockedFalse">no</label>
+        </label>
+    </div>
+    <div>
+        <label>
+           First name and last name: 
+            <input type="text" name="name" placeholder="First name and last name"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            Phone:
+            <input type="tel" name="phone" placeholder="+7-987-765-43-21"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            E-mail:
+            <input type="email" name="email" placeholder="example@ex.com"/>
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Print"/>
+    </div>
+</form>
+<table>
+    <tr>
+        <td>
+            ID
+        </td>
+        <td>
+            NAME
+        </td>
+        <td>
+            PHONE
+        </td>
+        <td>
+            E-MAIL 
+        </td>
+        <td>
+            BLOKED
+        </td>
+    </tr>
+        @foreach($buyers as $buyer)
+        <tr>
+            <td>
+                <a>
+                    {{$buyer->id}}
+                </a>
+            </td>
+            <td>
+                {{$buyer->firstName . " " . $buyer->lastName}}
+            </td>
+            <td>{{$buyer->phone}}</td>
+            <td>{{$buyer->email}}</td>
+            <td>
+                @if ($buyer->isBlocked)
+                    yes
+                @else
+                    no
+                @endif
+            </td>
+        </tr>
+    @endforeach
+</table>
+{{$buyers->links()}}
         </div>
 </body>
 </html>

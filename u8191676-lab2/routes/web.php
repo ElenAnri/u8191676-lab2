@@ -18,4 +18,4 @@ Route::get('/', function () {
     return redirect()->route('buyers');
 });
 
-Route::get('/customers', ['as' => 'buyers', 'uses' => 'App\Http\Controllers\BuyerController@index']);
+Route::get('/customers', ['as' => 'buyers', 'uses' => 'App\Http\Controllers\BuyerController@filter']);
