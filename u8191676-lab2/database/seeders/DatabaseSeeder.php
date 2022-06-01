@@ -16,12 +16,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        //$this->call([
-            //AddressSeeder::class,
-            //BuyerSeeder::class
-        //]);
-        \App\Models\Buyer::factory()->count(100)->create();
-        \App\Models\Address::factory()->count(100)->create();
+        $this->call([
+            AddressSeeder::class,
+            BuyerSeeder::class
+        ]);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
