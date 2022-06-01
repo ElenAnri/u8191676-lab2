@@ -8,4 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'city',
+        'streetOrMicrodistrict',
+        'building',
+        'floor',
+        'flat',
+        'intercomCode',
+        'buyerID'
+    ];
+
+
+    public function buyer()
+    {
+        $this->belongsTo(Buyer::class);
+    }
 }
