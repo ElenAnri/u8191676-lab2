@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('flat');
             $table->string('intercomCode')->nullable();
             $table->timestamps();
-            $table->integer('buyerId');
-            $table->foreign('buyerId')->references('id')->on('buyers');
+            $table->integer('buyer_id');
+            $table->foreign('buyer_id')->references('id')->on('buyers');
         });
     }
 

@@ -17,7 +17,7 @@ class Address extends Model
         'floor',
         'flat',
         'intercomCode',
-        'buyerID'
+        'buyer_id'
     ];
 
 

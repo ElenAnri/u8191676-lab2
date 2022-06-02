@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/customers', ['as' => 'buyers', 'uses' => 'App\Http\Controllers\BuyerController@filter']);
+Route::get('/customers/{id}', ['as' => 'aboutBuyer', 'uses' => 'App\Http\Controllers\BuyerController@printBuyer']);

@@ -25,7 +25,7 @@ class AddressFactory extends Factory
         'floor' => $this->faker->numberBetween($min = 1, $max = 50),
         'flat' => $this->faker->numberBetween($min = 1, $max = 500),
         'intercomCode' => $this->faker->numerify('*####K'),
-        'buyerId' => Buyer::all()->random()->id,
+        'buyer_id' => Buyer::all()->random()->id,
         ];
     }
 }

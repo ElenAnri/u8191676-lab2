@@ -49,4 +49,14 @@ class BuyerController extends Controller
         return view('buyers')->with('buyers', $customersToShow);
     }
 
+    public function printBuyer($id): View|string
+    {
+        $buyer = Buyer::where('id', $id)->with('address')->get()->first();
+
+        if ($buyer != null) {
+            return view('buyerid')->with('buyer', $buyer);
+        } else
+            return "Wrong ID";
+    }
+
 }
