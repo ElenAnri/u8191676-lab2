@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+Artisan::command('addressCount {id}', function ($id) {
+    $buyer = \App\Models\Buyer::where('id', $id)->with('address')->first();
+    if ($buyer != null) {
+        $this->info("Buyer_id: {$id} \nCount addresses: {$buyer->address->count()}\n");
+    } else {
+        $this->error("No such customer");
+    }
+})->purpose('Adresses count');

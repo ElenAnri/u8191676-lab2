@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BuyerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('buyers');
 });
+
+Route::get('/customers', ['as' => 'buyers', 'uses' => 'App\Http\Controllers\BuyerController@filter']);
+Route::get('/customers/{id}', ['as' => 'aboutBuyer', 'uses' => 'App\Http\Controllers\BuyerController@printBuyer']);
